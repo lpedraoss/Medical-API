@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import med.voll.api.direction.Direction;
 
 @Table(name = "doctors")
 @Entity
@@ -21,4 +22,13 @@ public class Doctor {
     private Specialy specialy;
     @Embedded
     private Direction direction;
+
+    public Doctor(MedicalRecordData medicalRecordData) {
+        this.name = medicalRecordData.name();
+        this.email = medicalRecordData.email();
+        this.document = medicalRecordData.document();
+        this.specialy = medicalRecordData.specialy();
+        this.direction = new Direction(medicalRecordData.directionData());
+
+    }
 }
