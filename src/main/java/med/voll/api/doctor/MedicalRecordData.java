@@ -13,6 +13,8 @@ public record MedicalRecordData(
         @Email
         String email,
         @NotBlank
+        String phone,
+        @NotBlank
         @Pattern(regexp = "\\d{4,12}")
         String document,
         @NotNull
