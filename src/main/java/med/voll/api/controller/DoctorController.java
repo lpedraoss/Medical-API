@@ -2,6 +2,7 @@ package med.voll.api.controller;
 
 import jakarta.validation.Valid;
 import lombok.Setter;
+import med.voll.api.doctor.DataListDoctor;
 import med.voll.api.doctor.Doctor;
 import med.voll.api.doctor.DoctorRepository;
 import med.voll.api.doctor.MedicalRecordData;
@@ -21,7 +22,7 @@ public class DoctorController {
         doctorRepository.save(new Doctor(medicalRecordData));
     }
     @GetMapping
-    public List<Doctor> doctorList(){
-        return doctorRepository.findAll();
+    public List<DataListDoctor> doctorList(){
+        return doctorRepository.findAll().stream().map(DataListDoctor::new).toList();
     }
 }
