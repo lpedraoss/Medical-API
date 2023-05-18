@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -29,7 +30,7 @@ public class DoctorController {
         return doctorRepository.findAll().stream().map(DataListDoctor::new).toList();
     }
     @GetMapping("/sorter")
-    public Page<DataListDoctor> doctorListOrder(Pageable paginacion){
+    public Page<DataListDoctor> doctorListOrder(@PageableDefault(size=2) Pageable paginacion){
         return doctorRepository.findAll(paginacion).map(DataListDoctor::new);
     }
 }
