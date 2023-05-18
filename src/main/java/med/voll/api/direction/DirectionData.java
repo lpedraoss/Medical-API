@@ -1,4 +1,17 @@
 package med.voll.api.direction;
 
-public record DirectionData(String street, String district, String city, int number,String complement) {
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+
+public record DirectionData(
+        @NotBlank
+        String street,
+        @NotBlank
+        String district,
+        @NotBlank
+        String city,
+        @NotNull
+        int number,
+        @NotBlank
+        String complement) {
 }

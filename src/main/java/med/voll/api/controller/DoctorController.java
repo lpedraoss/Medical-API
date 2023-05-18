@@ -1,5 +1,6 @@
 package med.voll.api.controller;
 
+import jakarta.validation.Valid;
 import lombok.Setter;
 import med.voll.api.doctor.Doctor;
 import med.voll.api.doctor.DoctorRepository;
@@ -13,7 +14,7 @@ public class DoctorController {
     @Autowired
     private DoctorRepository doctorRepository;
     @PostMapping
-    public void registerDoctor(@RequestBody MedicalRecordData medicalRecordData){
+    public void registerDoctor(@RequestBody @Valid MedicalRecordData medicalRecordData){
         System.out.println(medicalRecordData);
         doctorRepository.save(new Doctor(medicalRecordData));
     }

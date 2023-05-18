@@ -5,7 +5,7 @@ create table doctors(
     document varchar(10) not null unique,
     specialy varchar(100) not null,
     street varchar(100) not null,
-    district varchar(10) not null unique,
+    district varchar(10) not null,
     complement varchar(100) not null,
     number tinyint,
     city varchar(100) not null,
