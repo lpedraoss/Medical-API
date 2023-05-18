@@ -17,7 +17,7 @@ public class Doctor {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String name, email, document;
+    private String name, email, document,phone;
     @Enumerated(EnumType.STRING)
     private Specialy specialy;
     @Embedded
@@ -29,6 +29,7 @@ public class Doctor {
         this.document = medicalRecordData.document();
         this.specialy = medicalRecordData.specialy();
         this.direction = new Direction(medicalRecordData.directionData());
+        this.phone = medicalRecordData.phone();
 
     }
 }
